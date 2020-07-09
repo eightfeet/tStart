@@ -1,0 +1,142 @@
+@import './variables.scss';
+
+body {
+    background-color: $white;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+button,
+select,
+input {
+    -webkit-appearance: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    user-select: none;
+}
+
+#root {
+    background-color: #fff;
+    position: relative;
+    min-height: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: '';
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+#addresspick {
+    position: relative;
+    z-index: 10000;
+}
+
+.maincolor {
+    color: $maincolor;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.by-health-login-modal_content_wrap .by-health-login-item button:defined {
+    background-color: #ffae6f !important;
+}
+
+.by-health-login-modal_content_wrap .by-health-login-item button:disabled {
+    background-color: #e4e4e4 !important;
+}
+
+.by-health-login-modal_button {
+    background-color: $maincolor !important;
+}
+
+.by-health-login-modal_header h3.by-health-login-headerline-activated {
+    color: $maincolor !important;
+}
+
+.by-health-login-modal_content_wrap div.by-health-login-modal_close {
+    background-image: url('http://cdn-yyj.4000916916.com/pic/20200707close.png');
+    width: 2em;
+    height: 2em;
+    top: -3em !important;
+    right: 0 !important;
+}
+
+.by-health-login-modal_content_wrap .by-health-login-modal_header,
+.by-health-login-modal_content_wrap .by-health-login-modal_article {
+    margin: 0 1em !important;
+}
+
+.by-health-login-modal_modules {
+    border-radius: 0.4em !important;
+}
+
+.messagetitle {
+    font-size: fixpx(36);
+    padding: 0;
+    margin: 0;
+    padding: fixpx(28) fixpx(28);
+    color: $maincolor;
+}
+
+.messagecontent {
+    display: flex;
+    min-height: fixpx(100);
+    align-items: center;
+    font-size: fixpx(28);
+    justify-items: center;
+    padding-bottom: fixpx(20);
+}
+
+.messagemain {
+    text-align: center;
+    width: 100%;
+}
+
+.btn {
+    display: block;
+}
+
+.button {
+    background-color: #fff6ed;
+    height: fixpx(74);
+    border: 1px solid $maincolor;
+    color: $maincolor;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: fixpx(21);
+    border-radius: fixpx(68);
+}
+
+.ok {
+    color: #fff;
+    background-color: $maincolor;
+}
+
+.pageerror {
+    color: grey;
+    width: 100%;
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: fixpx(25);
+}

@@ -1,0 +1,2 @@
+export const jwt: string =
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE1OTQwMDc1OTEsImV4cCI6MTU5NDYxMjM5MSwiaXNzIjoiRW1wbG95ZWUiLCJzdWIiOiI1MTAzMjAwMCJ9.uP2cNetCw-f0Smu0hiFLgfoSe2j5pZ6wKKEJs0yrPpUgpCibIxJ4OjGst5h0eB79fv_0w8FzejjYupVDohaAmg';
