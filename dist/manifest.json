@@ -1,5 +1,22 @@
 {
-  "index.js": "bundle.784bc0.js",
+  "index.js": "bundle.5a13a3.js",
+  "../src/actions.d.ts": "../src/actions.d.ts",
+  "../src/api/index.d.ts": "../src/api/index.d.ts",
+  "../src/api/scrm.d.ts": "../src/api/scrm.d.ts",
+  "../src/core/bootstraps/index.d.ts": "../src/core/bootstraps/index.d.ts",
+  "../src/core/bootstraps/mock.d.ts": "../src/core/bootstraps/mock.d.ts",
+  "../src/core/helpers.d.ts": "../src/core/helpers.d.ts",
+  "../src/core/login.d.ts": "../src/core/login.d.ts",
+  "../src/core/polyfill.d.ts": "../src/core/polyfill.d.ts",
+  "../src/core/request/compose.d.ts": "../src/core/request/compose.d.ts",
+  "../src/core/request/index.d.ts": "../src/core/request/index.d.ts",
+  "../src/core/request/middlewares.d.ts": "../src/core/request/middlewares.d.ts",
+  "../src/core/request/request.d.ts": "../src/core/request/request.d.ts",
+  "../src/core/request/utils.d.ts": "../src/core/request/utils.d.ts",
+  "../src/core/setRem.d.ts": "../src/core/setRem.d.ts",
+  "../src/index.d.ts": "../src/index.d.ts",
+  "../src/modules/index.d.ts": "../src/modules/index.d.ts",
+  "../src/reducers.d.ts": "../src/reducers.d.ts",
   "assets/favicon.ico": "assets/favicon.ico",
   "index.html": "index.html"
 }

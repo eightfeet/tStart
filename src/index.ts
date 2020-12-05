@@ -7,10 +7,6 @@ if (window.fetch === undefined) {
 	throw new Error('fetch pollyfill not found.');
 }
 
-const MemberCoupons = require('~/modules/MemberCoupons').default;
+import Test from '~/modules/'
 
-if ((window as any).BY_HEALTH) {
-    (window as any).BY_HEALTH?.registerModule('MemberCoupons', MemberCoupons);
-}
-
-module.exports = MemberCoupons;
+export default Test;

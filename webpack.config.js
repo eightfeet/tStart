@@ -28,11 +28,12 @@ module.exports = (env, argv) => {
 			index: './index.ts'
 		},
 		output: {
-			library: 'ByhealthMemberCoupons',
+			library: 'TStart',
 			libraryTarget: 'umd',
+			libraryExport: 'default',
 			path: path.resolve(__dirname, 'dist'),
 			publicPath: process.env.PUBLIC_PATH,
-			filename: isPro ? 'bundle.[hash:6].js' : 'bundle.js',
+			filename: isPro ? 'bundle.[hash:6].js' : 'bundle.js'
 		},
 		resolve: {
 			extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.less', '.scss', '.css'],
@@ -179,18 +180,7 @@ module.exports = (env, argv) => {
 			publicPath: '/',
 			contentBase: './src',
 			historyApiFallback: true,
-			open: false,
-			// openPage: '',
-			proxy: {
-				"/scrm": {
-					target: "https://yyj-test.by-health.com",
-					changeOrigin: true
-				},
-				"/blessCodeActivity": {
-					target: "https://yyj-test.by-health.com",
-					changeOrigin: true
-				}
-			}
+			open: false
 		}
 	};
 };
