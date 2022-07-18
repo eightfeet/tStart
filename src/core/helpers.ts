@@ -17,7 +17,7 @@ export function isWeChat() {
 	const ua = window.navigator.userAgent.toLowerCase();
 	if (ua.indexOf('micromessenger') === -1) {
 		return (1);
-	} else if ((window as any).__wxjs_environment === 'miniprogram') {
+	} else if ((window).__wxjs_environment === 'miniprogram') {
 		return (3);
 	}
 	return (2);
@@ -58,7 +58,7 @@ export const  urlLoader = (url: string) => {
 		dom.onload = dom['onreadystatechange'] = function () {
 			if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
 				dom.onload = dom['onreadystatechange'] = null;
-				setTimeout(() => resolve(), 200);
+				setTimeout(() => resolve(undefined), 200);
 			}
 		};
 		dom.onerror = function () {
@@ -74,7 +74,7 @@ export const  urlLoader = (url: string) => {
  * @param {String} type 预判类型
  */
 export const isType = (
-	anyObject: any, 
+	anyObject: any,
 	type: 'String' | 'Object' | 'Array' | 'Function' | 'Number' | 'Null' | 'Undefined'
 ):boolean => {
 	if (Object.prototype.toString.apply(anyObject) === `[object ${type}]`) {

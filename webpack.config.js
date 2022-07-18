@@ -5,7 +5,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const envSet = require('./env');
 
 module.exports = (env, argv) => {
@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
 	// webpack环境
 	const isPro = envMode === 'production';
 	const isDev = envMode === 'development';
-	const isUat = envMode === 'uat';
+	// const isUat = envMode === 'uat';
 	
 	return {
 		context: path.resolve(__dirname, 'src'),
@@ -33,7 +33,7 @@ module.exports = (env, argv) => {
 			libraryExport: 'default',
 			path: path.resolve(__dirname, 'dist'),
 			publicPath: process.env.PUBLIC_PATH,
-			filename: isPro ? 'bundle.[hash:6].js' : 'bundle.js'
+			filename: isPro ? 'bundle.[contenthash:6].js' : 'bundle.js'
 		},
 		resolve: {
 			extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.less', '.scss', '.css'],
@@ -64,11 +64,7 @@ module.exports = (env, argv) => {
 		},
 		module: {
 			rules: [
-				{
-					test: /\.tsx?$/,
-					exclude: /node_modules/,
-					loaders: ['ts-loader']
-				},
+				{ test: /\.tsx?$/, loader: "ts-loader", exclude: /node_modules/ },
 				{
 					test: /\.(jsx|js)?$/,
 					exclude: path.resolve(__dirname, 'src'),
@@ -137,16 +133,17 @@ module.exports = (env, argv) => {
 					type: 'javascript/auto'
 				},
 				{
-					test: /\.(xml|html|txt|md)$/,
-					use: 'raw-loader'
-				},
-				{
-					test: /\.(svg|woff2?|ttf|eot)(\?.*)?$/i,
-					use: isPro ? 'file-loader' : 'url-loader'
-				},
-				{
-					test: /\.(jpe?g|png|gif)$/,
-					use: isPro ? { loader: 'url-loader?limit=10000' } : { loader: 'url-loader?limit=10000' }
+					test: /\.(png|jpg|gif)$/i,
+					dependency: { not: ['url'] },
+					use: [
+						{
+							loader: 'url-loader',
+							options: {
+								limit: 8192
+							}
+						}
+					],
+					type: 'javascript/auto'
 				}
 			]
 		},
@@ -161,13 +158,13 @@ module.exports = (env, argv) => {
 			new CopyWebpackPlugin([
 				{ from: './assets', to: './assets' }
 			]),
-			new ManifestPlugin()
+			new WebpackManifestPlugin()
 		]
 			.concat(argv.report ? [new BundleAnalyzerPlugin()] : []),
-		devtool: isPro || isUat ? 'source-map' : 'cheap-module-eval-source-map',
+		devtool: isPro ? false : 'source-map',
 		devServer: {
 			port: process.env.PORT || 3000,
-			host: '0.0.0.0',
+			host: 'localhost',
 			publicPath: '/',
 			contentBase: './src',
 			historyApiFallback: true,
