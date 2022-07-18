@@ -1,12 +1,16 @@
-import s from "./css.scss";
+import s from "./style.scss";
+import Modal from '@eightfeet/modal';
+import a from "./../style/common.scss";
 class Test {
 	constructor(parameters: any) {
 		console.log(parameters, s);
 	}
 }
 
-new Test({});
+document.getElementById('root').innerHTML = 'Hello word!';
+document.getElementById('root').classList.add(s.test, a.bolder);
 
-document.body.classList.add('aaaa');
-document.body.innerHTML = `<h2 class="${s.aaaa}">这个是标题</h2>`;
+const md = new Modal({});
+md.create({article: '0000'});
+new Test({});
 export default Test;

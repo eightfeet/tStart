@@ -1,0 +1,16 @@
+body {
+    background-color: #eee;
+    text-align: center;
+}
+
+.test {
+    color: blue;
+    &::after {
+        content: '++';
+        font-size: 70px;
+    }
+    &::before {
+        content: '++';
+        font-size: 70px;
+    }
+}

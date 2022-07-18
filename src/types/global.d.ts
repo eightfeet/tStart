@@ -1,3 +1,4 @@
 declare interface Window {
-    '__wxjs_environment': any
+    '__wxjs_environment': any;
+    Promise: any
 }
