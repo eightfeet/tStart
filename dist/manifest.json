@@ -1,5 +1,6 @@
 {
-  "index.js": "bundle.5a13a3.js",
+  "index.js": "bundle.08ff0a.js",
+  "index.js.map": "bundle.08ff0a.js.map",
   "../src/actions.d.ts": "../src/actions.d.ts",
   "../src/api/index.d.ts": "../src/api/index.d.ts",
   "../src/api/scrm.d.ts": "../src/api/scrm.d.ts",

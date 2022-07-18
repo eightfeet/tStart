@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ManifestPlugin = require('webpack-manifest-plugin');
 const envSet = require('./env');
@@ -59,16 +59,7 @@ module.exports = (env, argv) => {
 					},
 					canPrint: true
 				}),
-				new UglifyJsPlugin({
-					uglifyOptions: {
-						output: {
-							comments: false
-						},
-						compress: {
-							drop_console: isPro
-						}
-					}
-				})
+				new TerserPlugin()
 			]
 		},
 		module: {
