@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const BundleAnalyzerPlugin =
-	require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+    require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const envSet = require('./env');
 
@@ -98,13 +98,14 @@ module.exports = (env, argv) => {
 									loader: 'css-loader',
 									options: {
 										modules: {
-											localIdentName: "[path][local]-[hash:base64:5]"
+											localIdentName:
+                                                '[path][local]-[hash:base64:5]'
 										},
 										sourceMap: !isPro,
 										importLoaders: 1
 									}
 								}, // convert css to js string css
-								"sass-loader" // convert sass to css
+								'sass-loader' // convert sass to css
 							]
 						}
 					]
@@ -137,22 +138,30 @@ module.exports = (env, argv) => {
 				...raw
 			}),
 			new webpack.DefinePlugin(stringified),
-			new CopyWebpackPlugin({ patterns: [{ from: './assets', to: './assets' }] }),
+			new CopyWebpackPlugin({
+				patterns: [{ from: './assets', to: './assets' }]
+			}),
 			new WebpackManifestPlugin(),
 			new MiniCssExtractPlugin({
-				filename: "[name][contenthash].css",
-				chunkFilename: "[id].css",
+				filename: '[name][contenthash].css',
+				chunkFilename: '[id].css',
 				ignoreOrder: false
 			})
 		].concat(argv.report ? [new BundleAnalyzerPlugin()] : []),
 		devtool: isPro ? false : 'source-map',
-		
+
 		devServer: {
 			static: {
 				directory: path.join(__dirname, 'public')
 			},
 			compress: true,
-			port: 3000
+			port: 3000,
+			client: {
+				overlay: {
+					errors: true,
+					warnings: false
+				}
+			}
 		}
 	};
 };
